@@ -13,10 +13,29 @@ m = [
 
 
 def encrypt():
-    s = input()
-
+    s = input("Enter: ")
+    print("Encryption:")
     for i in range(len(s)-1):
         enc_pair = m[int(s[i])][int(s[i+1])]
         print(enc_pair, end='')
 
     print(m[int(s[-1])][int(s[0])])
+
+
+def decrypt():
+    print('Enter key:')
+    key = int(input())
+    print('Enter encrypted code:')
+    s = input()
+
+    print("Decryption:")
+    for i in range(len(s)):
+        for j in range(10):
+            if int(s[i]) == m[key][j]:
+                print(key, end='')
+                key = j
+                break
+
+
+encrypt()
+decrypt()
